@@ -1,0 +1,23 @@
+//
+//  PrefixHeader.pch
+//  UI Project
+//
+//  Created by 中软mini011 on 15/10/7.
+//  Copyright (c) 2015年 中软mini011. All rights reserved.
+//
+
+#ifndef UI_Project_PrefixHeader_pch
+#define UI_Project_PrefixHeader_pch
+
+// Include any system framework and library headers here that should be included in all compilation units.
+// You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
+#import <UIKit/UIKit.h>
+
+#import <Foundation/Foundation.h>
+
+#import "PublicDefine.h"
+
+#import "PublicEnum.h"
+
+#import "NewFuction.h"
+#endif

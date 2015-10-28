@@ -7,7 +7,8 @@
 //
 
 #import "AppDelegate.h"
-
+#import "TabBarController.h"
+#import "NewFuction.h"
 @interface AppDelegate ()
 
 @end
@@ -17,7 +18,45 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    
+    self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
+    
+    self.window.backgroundColor = [UIColor whiteColor];
+    
+    TabBarController *tabBar = [[TabBarController alloc] init];
+    
+    
+    [self.window setRootViewController:tabBar];
+    
+    
+    [self.window makeKeyAndVisible];
+    
+//    //判断是否是第一次进入，如果不是就直接进入，不显示UIScrollView
+//    if (![[[NSUserDefaults standardUserDefaults] objectForKey:New_Function_Version_Flag] boolValue])
+//    {
+//        [[NSUserDefaults standardUserDefaults] setValue:[NSNumber numberWithBool:YES] forKey:New_Function_Version_Flag];
+//        
+//        [self initNewFuction];
+//    }
+    
+    [self initNewFuction];
+
     return YES;
+}
+
+-(void)initNewFuction
+{
+    NSMutableArray * imageLists = [NSMutableArray array];
+    
+    for (int index = 0; index<4; index++)
+    {
+        NSString * imageName = [NSString stringWithFormat:@"start-up-%d.png",index+1];
+        [imageLists addObject:imageName];
+    }
+    
+   NewFuction * newView = (NewFuction *)[NewFuction showNewFuction:HWScrollViewTypeNewFuction ImageArray:imageLists];
+
+    [self.window addSubview:newView];
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application {
